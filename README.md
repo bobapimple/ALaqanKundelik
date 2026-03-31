@@ -1,6 +1,6 @@
 вообщем весь код просто не помещяется в гитхаб так что я просто добавлю зип файл со всем внутри.
 Он запускается с помощью npm run dev
-
+ссылка на код https://drive.google.com/file/d/1Uvn2V0jNJ6ZMeeRWXtT_NpfORSENzxr9/view?usp=sharing
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
