@@ -1,0 +1,164 @@
+﻿
+> aqbobek-portal@0.1.0 lint
+> eslint
+
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\api\ai\mentor\route.ts
+  16:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\components\header.tsx
+  20:5  error    Error: This value cannot be modified
+
+Modifying a variable defined outside a component or hook is not allowed. Consider using an effect.
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\components\header.tsx:20:5
+  18 |   const handleSwitch = (user: DemoUser) => {
+  19 |     localStorage.setItem('demoUser', JSON.stringify(user));
+> 20 |     window.location.href = `/dashboard/${user.role}`;
+     |     ^^^^^^^^^^^^^^^ value cannot be modified
+  21 |   };
+  22 |
+  23 |   const handleLogout = () => {  react-hooks/immutability
+  32:9  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                 @next/next/no-img-element
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\dashboard\admin\page.tsx
+  36:6   warning  React Hook useEffect has a missing dependency: 'router'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  60:14  warning  'err' is defined but never used                                                                            @typescript-eslint/no-unused-vars
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\dashboard\parent\page.tsx
+  26:5  error    Error: Cannot access variable before it is declared
+
+`loadChildData` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\dashboard\parent\page.tsx:26:5
+  24 |     }
+  25 |     setUser(parsed);
+> 26 |     loadChildData();
+     |     ^^^^^^^^^^^^^ `loadChildData` accessed before it is declared
+  27 |     loadEvents();
+  28 |   }, []);
+  29 |
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\dashboard\parent\page.tsx:30:3
+  28 |   }, []);
+  29 |
+> 30 |   const loadChildData = async () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 31 |     // ╨Т ╤А╨╡╨░╨╗╤М╨╜╨╛╤Б╤В╨╕ ╨╝╤Л ╨▒╤Л ╨╕╤Б╨║╨░╨╗╨╕ ╨┐╨╛ parent_id, ╨╜╨╛ ╨┤╨╗╤П ╨┤╨╡╨╝╨╛ ╨▒╨╡╤А╨╡╨╝ ╨╛╤Ж╨╡╨╜╨║╨╕ ╤Б╤В╤Г╨┤╨╡╨╜╤В╨░ 1
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |     const { data } = await supabase
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 33 |       .from('grades')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 34 |       .select('*, profiles(full_name)')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 35 |       .eq('student_id', 'student1')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 36 |       .order('date', { ascending: false });
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 37 |     
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 38 |     setGrades(data || []);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 39 |   };
+     | ^^^^^ `loadChildData` is declared here
+  40 |
+  41 |   const loadEvents = async () => {
+  42 |     const { data } = await supabase  react-hooks/immutability
+  27:5  error    Error: Cannot access variable before it is declared
+
+`loadEvents` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\dashboard\parent\page.tsx:27:5
+  25 |     setUser(parsed);
+  26 |     loadChildData();
+> 27 |     loadEvents();
+     |     ^^^^^^^^^^ `loadEvents` accessed before it is declared
+  28 |   }, []);
+  29 |
+  30 |   const loadChildData = async () => {
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\dashboard\parent\page.tsx:41:3
+  39 |   };
+  40 |
+> 41 |   const loadEvents = async () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |     const { data } = await supabase
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 43 |       .from('events')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 44 |       .select('*')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 45 |       .order('date', { ascending: true })
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 46 |       .limit(3);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 47 |     setEvents(data || []);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 48 |   };
+     | ^^^^^ `loadEvents` is declared here
+  49 |
+  50 |   if (!user) return <div className="min-h-screen bg-gray-950 flex items-center justify-center text-white text-xl">╨Ч╨░╨│╤А╤Г╨╖╨║╨░...</div>;
+  51 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         react-hooks/immutability
+  28:6  warning  React Hook useEffect has a missing dependency: 'router'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/exhaustive-deps
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\dashboard\student\page.tsx
+  47:5  error    Error: Cannot access variable before it is declared
+
+`fetchGrades` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\dashboard\student\page.tsx:47:5
+  45 |     }
+  46 |     setUser(parsedUser);
+> 47 |     fetchGrades(parsedUser.id);
+     |     ^^^^^^^^^^^ `fetchGrades` accessed before it is declared
+  48 |   }, []);
+  49 |
+  50 |   const fetchGrades = async (demoId: string) => {
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\dashboard\student\page.tsx:50:3
+  48 |   }, []);
+  49 |
+> 50 |   const fetchGrades = async (demoId: string) => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 51 |     const { data } = await supabase
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 52 |       .from('grades')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 53 |       .select('*')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |       .eq('student_id', demoId);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 55 |     setGrades(data || []);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 56 |   };
+     | ^^^^^ `fetchGrades` is declared here
+  57 |
+  58 |   const getAIMentorAdvice = async () => {
+  59 |     setLoadingAI(true);  react-hooks/immutability
+  48:6  warning  React Hook useEffect has a missing dependency: 'router'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          react-hooks/exhaustive-deps
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\dashboard\teacher\page.tsx
+  38:14  warning  'err' is defined but never used                                                                            @typescript-eslint/no-unused-vars
+  56:6   warning  React Hook useEffect has a missing dependency: 'router'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\kiosk\page.tsx
+  34:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\page.tsx
+  10:5   error    Error: This value cannot be modified
+
+Modifying a variable defined outside a component or hook is not allowed. Consider using an effect.
+
+C:\Users\╨Р╨╝╨╕╤А\aqbobek-portal\app\page.tsx:10:5
+   8 |   const handleLogin = (user: DemoUser) => {
+   9 |     localStorage.setItem('demoUser', JSON.stringify(user));
+> 10 |     window.location.href = `/dashboard/${user.role}`;
+     |     ^^^^^^^^^^^^^^^ value cannot be modified
+  11 |   };
+  12 |
+  13 |   return (  react-hooks/immutability
+  26:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                               @next/next/no-img-element
+
+тЬЦ 15 problems (7 errors, 8 warnings)
+
